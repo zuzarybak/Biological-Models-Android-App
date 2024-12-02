@@ -18,7 +18,7 @@ public class Model2Fragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.model2_fragment, container, false);
         model2Text = root.findViewById(R.id.model2Text);
-        model2Text.setText("MODEL");
+        model2Text.setText("MODEL 2");
         return root;
     }
 }
