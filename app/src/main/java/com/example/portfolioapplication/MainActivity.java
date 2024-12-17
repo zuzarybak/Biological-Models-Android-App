@@ -4,9 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -22,13 +21,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    private Button addNote;
-    private EditText noteField;
-    private TextView noteView;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private NavigationView navigationView;
+    private Button model1Button;
+    private Button model2Button;
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -37,9 +35,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-//        addNote = findViewById(R.id.addNote);
-//        noteField = findViewById(R.id.noteField);
-//        noteView = findViewById(R.id.noteView);
+        model1Button = findViewById(R.id.model1_button);
+        model2Button = findViewById(R.id.);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -49,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.fragment_container, new HomeFragment())
                     .commit();
         }
+
+        model1Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new Model1Fragment())
+                        .commit();
+            }
+        });
 
         //nawigacja
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,

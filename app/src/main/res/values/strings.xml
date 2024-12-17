@@ -2,4 +2,6 @@
     <string name="app_name"> PortfolioApplication </string>
     <string name="navigation_drawer_open"> Open the side menu. </string>
     <string name="navigation_drawer_close"> Close the side menu. </string>
+    <string name="dna_button_description"> DNA (deoxyribonucleic acid) :a polymer carrying genetic instructions </string>
+    <string name="rna_button_description"> RNA (ribonucleic acid) :a polymer carrying genetic instructions </string>
 </resources>

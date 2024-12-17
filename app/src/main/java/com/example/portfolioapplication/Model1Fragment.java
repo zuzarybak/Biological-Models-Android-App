@@ -20,7 +20,8 @@ public class Model1Fragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.model1_fragment, container, false);
         model1Text = root.findViewById(R.id.model1Text);
-        model1Text.setText("MODEL 1");
+        model1Text.setText("DNA");
+        model1Text.append("\ndna_button_description");
         return root;
     }
 }

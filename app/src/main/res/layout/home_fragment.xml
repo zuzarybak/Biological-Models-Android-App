@@ -8,22 +8,25 @@
         android:background="#9FFFED"
         android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/noteField"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:inputType="text"
-        android:text="" />
+        <Button
+            android:id="@+id/model1_button"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:drawableLeft="@drawable/ic_launcher_foreground"
+            android:text="@string/dna_button_description"
+            android:background="@drawable/button_shape"
+            android:layout_margin="16dp"/>
 
-    <Button
-        android:id="@+id/addNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="#009688"
-        android:text="Click me!" />
+        <Button
+            android:id="@+id/model2_button"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:drawableLeft="@drawable/ic_launcher_foreground"
+            android:text="@string/rna_button_description"
+            android:background="@drawable/button_shape"
+            android:layout_margin="16dp"/>
 
     <TextView
         android:id="@+id/noteView"
