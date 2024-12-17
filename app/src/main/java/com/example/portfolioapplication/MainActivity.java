@@ -35,26 +35,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        model1Button = findViewById(R.id.model1_button);
-        model2Button = findViewById(R.id.);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
-        if (savedInstanceState == null) {
+        /* if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new HomeFragment())
                     .commit();
-        }
-
-        model1Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new Model1Fragment())
-                        .commit();
-            }
-        });
+        } */
 
         //nawigacja
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
@@ -62,10 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        /* navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Log.i(TAG, "Click");
 
                 if (item.getItemId() == R.id.model1)
                 {
@@ -81,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 return true;
             }
-        });
+        }); */
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.drawer_layout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -95,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
+    /* @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_goBack) {
@@ -104,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
-    }
+    } */
 }
