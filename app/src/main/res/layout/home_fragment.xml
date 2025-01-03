@@ -7,14 +7,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#9FFFED"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHOOSE YOUR MODEL: "
+            android:textSize="20dp"
+            android:paddingTop="20dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="start"
+            android:textColor="#009688"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/model1_button"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="0.3"
-            android:drawableLeft="@drawable/ic_launcher_foreground"
+            android:drawableLeft ="@drawable/dna"
+            android:drawablePadding="8dp"
             android:text="@string/dna_button_description"
             android:background="@drawable/button_shape"
             android:layout_margin="16dp"/>
@@ -25,7 +39,6 @@
             android:layout_height="0dp"
             android:layout_weight="0.3"
             android:drawableLeft="@drawable/ic_launcher_foreground"
-            android:text="@string/rna_button_description"
             android:background="@drawable/button_shape"
             android:layout_margin="16dp"/>
 

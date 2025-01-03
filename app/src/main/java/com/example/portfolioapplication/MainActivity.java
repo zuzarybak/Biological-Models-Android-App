@@ -1,22 +1,20 @@
 package com.example.portfolioapplication;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
-import androidx.core.view.GravityCompat;
+import androidx.core.graphics.Insets;;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -25,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private NavigationView navigationView;
-    private Button model1Button;
-    private Button model2Button;
-
-    private static final String TAG = MainActivity.class.getSimpleName();
+    AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+            R.id.homeFragment
+    ).setOpenableLayout(drawerLayout)
+            .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,37 +37,18 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
-        /* if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new HomeFragment())
-                    .commit();
-        } */
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment);
+        NavController navController = navHostFragment.getNavController();
 
-        //nawigacja
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
+
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        /* navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                if (item.getItemId() == R.id.model1)
-                {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment_container, new Model1Fragment())
-                            .commit();
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else if (item.getItemId() == R.id.model2) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment_container, new Model2Fragment())
-                            .commit();
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                }
-                return true;
-            }
-        }); */
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.drawer_layout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -83,15 +62,14 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    /* @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_goBack) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new HomeFragment())
-                    .commit();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    } */
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavHostFragment navHostFragment = (NavHostFragment)
+                getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        NavController navController = navHostFragment.getNavController();
+        return NavigationUI.navigateUp(navController, appBarConfiguration)
+                || super.onSupportNavigateUp();
+    }
+
+    //onNavigationItemSelected nie jest potrzebny, bo NavigationUI automatycznie łączy NavigationView z NavController
 }

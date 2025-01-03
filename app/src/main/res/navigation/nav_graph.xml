@@ -20,11 +20,25 @@
     <fragment
         android:id="@+id/model1Fragment"
         android:name="com.example.portfolioapplication.Model1Fragment"
-        android:label="Model1Fragment" />
+        android:label="Model1Fragment" >
+        <action
+            android:id="@+id/action_fragment1_to_fragment2"
+            app:destination="@id/model1Fragment" />
+        <action
+            android:id="@+id/action_fragment1_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/model2Fragment"
         android:name="com.example.portfolioapplication.Model2Fragment"
-        android:label="Model2Fragment" />
+        android:label="Model2Fragment" >
+        <action
+            android:id="@+id/action_fragment2_to_fragment1"
+            app:destination="@id/model1Fragment" />
+        <action
+            android:id="@+id/action_fragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
 </navigation>
