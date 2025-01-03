@@ -1,6 +1,7 @@
 package com.example.portfolioapplication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 
 import androidx.activity.EdgeToEdge;
@@ -21,12 +22,9 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle toggle;
     private NavigationView navigationView;
-    AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-            R.id.homeFragment
-    ).setOpenableLayout(drawerLayout)
-            .build();
+    private static final String TAG = "MainActivity";
+   private AppBarConfiguration appBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +39,13 @@ public class MainActivity extends AppCompatActivity {
                 .findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
 
+        appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.homeFragment // to jest top-level
+        ).setOpenableLayout(drawerLayout) // DrawerLayout do obsługi hamburgera
+                .build();
+
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.drawer_layout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
