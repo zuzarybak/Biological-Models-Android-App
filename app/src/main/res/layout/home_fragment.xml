@@ -31,19 +31,30 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
-        <include
-            android:id="@+id/model_1_button"
-            layout="@layout/model_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
 
-        <include
-            android:id="@+id/model_2_button"
-            layout="@layout/model_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
+        <com.example.portfolioapplication.ModelButton
+            android:id="@+id/my_model_button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.example.portfolioapplication.ModelButton
+            android:id="@+id/my_model_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--        <include-->
+<!--            android:id="@+id/model_1_button"-->
+<!--            layout="@layout/model_button"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="10dp" />-->
+
+<!--        <include-->
+<!--            android:id="@+id/model_2_button"-->
+<!--            layout="@layout/model_button"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="10dp" />-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

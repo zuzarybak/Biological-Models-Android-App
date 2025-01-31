@@ -34,14 +34,14 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.home_fragment, container, false);
 
-        model1Button = root.findViewById(R.id.model_1_button);
-        model1Text = root.findViewById(R.id.model_1_text);
-        String formattedText1 = "<big>DNA</big><br><small> (deoxyribonucleic acid) <br> a polymer carrying genetic instructions </small>";
-        model1Text.setText(Html.fromHtml(formattedText1, Html.FROM_HTML_MODE_LEGACY));
-        model1Image = root.findViewById(R.id.model1_image);
-        model1LikeIcon = root.findViewById(R.id.like_icon1);
-
-        model2Button = root.findViewById(R.id.model_2_button);
+//        model1Button = root.findViewById(R.id.model_1_button);
+//        model1Text = root.findViewById(R.id.model_1_text);
+//        String formattedText1 = "<big>DNA</big><br><small> (deoxyribonucleic acid) <br> a polymer carrying genetic instructions </small>";
+//        model1Text.setText(Html.fromHtml(formattedText1, Html.FROM_HTML_MODE_LEGACY));
+//        model1Image = root.findViewById(R.id.model1_image);
+//        model1LikeIcon = root.findViewById(R.id.like_icon1);
+//
+//        model2Button = root.findViewById(R.id.model_2_button);
 //        model2Text = root.findViewById(R.id.model_2_text);
 //        String formattedText2 = "<big>mRNA</big><br><small> (messenger ribonucleic acid) <br> a polymer being a product of transcription";
 //        model2Text.setText(Html.fromHtml(formattedText2, Html.FROM_HTML_MODE_LEGACY));

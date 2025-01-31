@@ -35,14 +35,14 @@ public class GeneticsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.genetics_fragment, container, false);
-        model1Button2 = root.findViewById(R.id.model_1_button);
-        model1Text2 = root.findViewById(R.id.model_1_text);
-        String formattedText1 = "<big>DNA</big><br><small> (deoxyribonucleic acid) <br> a polymer carrying genetic instructions </small>";
-        model1Text2.setText(Html.fromHtml(formattedText1, Html.FROM_HTML_MODE_LEGACY));
-        model1Image2 = root.findViewById(R.id.model1_image);
-        model1LikeIcon2 = root.findViewById(R.id.like_icon1);
+//        model1Button2 = root.findViewById(R.id.model_1_button);
+//        model1Text2 = root.findViewById(R.id.model_1_text);
+//        String formattedText1 = "<big>DNA</big><br><small> (deoxyribonucleic acid) <br> a polymer carrying genetic instructions </small>";
+//        model1Text2.setText(Html.fromHtml(formattedText1, Html.FROM_HTML_MODE_LEGACY));
+//        model1Image2 = root.findViewById(R.id.model1_image);
+//        model1LikeIcon2 = root.findViewById(R.id.like_icon1);
 
-        model2Button2 = root.findViewById(R.id.model_2_button);
+//        model2Button2 = root.findViewById(R.id.model_2_button);
 //        model2Text2 = root.findViewById(R.id.model_2_text);
 //        String formattedText2 = "<big>mRNA</big><br><small> (messenger ribonucleic acid) <br> a polymer being a product of transcription";
 //        model2Text2.setText(Html.fromHtml(formattedText2, Html.FROM_HTML_MODE_LEGACY));
@@ -56,18 +56,18 @@ public class GeneticsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(requireView());
 
-        model1LikeIcon2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                model1LikeIcon2.setImageResource(R.drawable.baseline_bookmark_24);
-            }
-        });
-
-        model2LikeIcon2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                model2LikeIcon2.setImageResource(R.drawable.baseline_bookmark_24);
-            }
-        });
+//        model1LikeIcon2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                model1LikeIcon2.setImageResource(R.drawable.baseline_bookmark_24);
+//            }
+//        });
+//
+//        model2LikeIcon2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                model2LikeIcon2.setImageResource(R.drawable.baseline_bookmark_24);
+//            }
+//        });
     }
 }
