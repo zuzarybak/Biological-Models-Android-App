@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/homeFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/geneticsFragment" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:backgroundTint="#9FFFED"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
+        android:background="#9FFFED"
         android:orientation="vertical"
-        android:padding="8dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="27dp">
+        tools:layout_editor_absoluteX="-54dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,32 +20,25 @@
             android:paddingLeft="10dp"
             android:paddingTop="20dp"
             android:paddingBottom="10dp"
-            android:text="CHOOSE YOUR MODEL: "
+            android:text="MODELS RELATED TO 'GENETICS' : "
             android:textColor="#009688"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <include
-            android:id="@+id/model_1_button"
+            android:id="@+id/genetics_model_1_button"
             layout="@layout/model1_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />
 
         <include
-            android:id="@+id/model_2_button"
+            android:id="@+id/genetics_model_2_button"
             layout="@layout/model2_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5">
-
-        </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

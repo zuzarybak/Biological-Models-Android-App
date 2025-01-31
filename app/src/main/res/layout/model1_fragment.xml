@@ -12,7 +12,8 @@
         <TextView
             android:id="@+id/model1Text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:text="DNA" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

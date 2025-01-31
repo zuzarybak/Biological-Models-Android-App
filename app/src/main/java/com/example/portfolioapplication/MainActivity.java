@@ -5,10 +5,9 @@ import android.util.Log;
 import android.view.Menu;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;;
+import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -20,10 +19,11 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    private static final String TAG = "MainActivity";
    private AppBarConfiguration appBarConfiguration;
 
     @Override
@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = navHostFragment.getNavController();
 
         appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.homeFragment // to jest top-level
-        ).setOpenableLayout(drawerLayout) // DrawerLayout do obsługi hamburgera
+                R.id.homeFragment
+        ).setOpenableLayout(drawerLayout)
                 .build();
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
