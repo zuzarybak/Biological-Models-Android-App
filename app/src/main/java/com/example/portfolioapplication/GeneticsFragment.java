@@ -43,11 +43,11 @@ public class GeneticsFragment extends Fragment {
         model1LikeIcon2 = root.findViewById(R.id.like_icon1);
 
         model2Button2 = root.findViewById(R.id.model_2_button);
-        model2Text2 = root.findViewById(R.id.model_2_text);
-        String formattedText2 = "<big>mRNA</big><br><small> (messenger ribonucleic acid) <br> a polymer being a product of transcription";
-        model2Text2.setText(Html.fromHtml(formattedText2, Html.FROM_HTML_MODE_LEGACY));
-        model2Image2 = root.findViewById(R.id.model2_image);
-        model2LikeIcon2 = root.findViewById(R.id.like_icon2);
+//        model2Text2 = root.findViewById(R.id.model_2_text);
+//        String formattedText2 = "<big>mRNA</big><br><small> (messenger ribonucleic acid) <br> a polymer being a product of transcription";
+//        model2Text2.setText(Html.fromHtml(formattedText2, Html.FROM_HTML_MODE_LEGACY));
+//        model2Image2 = root.findViewById(R.id.model2_image);
+//        model2LikeIcon2 = root.findViewById(R.id.like_icon2);
         return root;
     }
 

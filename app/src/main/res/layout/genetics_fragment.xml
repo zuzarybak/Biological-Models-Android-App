@@ -27,14 +27,14 @@
 
         <include
             android:id="@+id/genetics_model_1_button"
-            layout="@layout/model1_button"
+            layout="@layout/model_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />
 
         <include
             android:id="@+id/genetics_model_2_button"
-            layout="@layout/model2_button"
+            layout="@layout/model_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />

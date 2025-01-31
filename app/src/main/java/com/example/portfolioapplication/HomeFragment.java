@@ -33,6 +33,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.home_fragment, container, false);
+
         model1Button = root.findViewById(R.id.model_1_button);
         model1Text = root.findViewById(R.id.model_1_text);
         String formattedText1 = "<big>DNA</big><br><small> (deoxyribonucleic acid) <br> a polymer carrying genetic instructions </small>";
@@ -41,11 +42,11 @@ public class HomeFragment extends Fragment {
         model1LikeIcon = root.findViewById(R.id.like_icon1);
 
         model2Button = root.findViewById(R.id.model_2_button);
-        model2Text = root.findViewById(R.id.model_2_text);
-        String formattedText2 = "<big>mRNA</big><br><small> (messenger ribonucleic acid) <br> a polymer being a product of transcription";
-        model2Text.setText(Html.fromHtml(formattedText2, Html.FROM_HTML_MODE_LEGACY));
-        model2Image = root.findViewById(R.id.model2_image);
-        model2LikeIcon = root.findViewById(R.id.like_icon2);
+//        model2Text = root.findViewById(R.id.model_2_text);
+//        String formattedText2 = "<big>mRNA</big><br><small> (messenger ribonucleic acid) <br> a polymer being a product of transcription";
+//        model2Text.setText(Html.fromHtml(formattedText2, Html.FROM_HTML_MODE_LEGACY));
+//        model2Image = root.findViewById(R.id.model2_image);
+//        model2LikeIcon = root.findViewById(R.id.like_icon2);
         return root;
     }
 
@@ -54,7 +55,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(requireView());
 
-        model1Button.setOnClickListener(new View.OnClickListener() {
+     /*   model1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_homeFragment_to_fragment1);
@@ -74,8 +75,8 @@ public class HomeFragment extends Fragment {
                     model1Button.setGravity(Gravity.TOP);
                 }
             }
-        });
-        model2LikeIcon.setOnClickListener(new View.OnClickListener() {
+        });*/
+       /* model2LikeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 model2LikeIcon.setImageResource(R.drawable.baseline_bookmark_24);
@@ -83,7 +84,7 @@ public class HomeFragment extends Fragment {
                     model2Button.setGravity(Gravity.TOP);
                 }
             }
-        });
+        });*/
     }
 }
 
