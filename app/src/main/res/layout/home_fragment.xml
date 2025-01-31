@@ -7,13 +7,13 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/parent_linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:backgroundTint="#9FFFED"
         android:clickable="true"
         android:focusable="true"
-        android:gravity="center"
         android:orientation="vertical"
         android:padding="8dp"
         tools:layout_editor_absoluteX="0dp"
@@ -32,15 +32,15 @@
             android:textStyle="bold" />
 
 
-        <com.example.portfolioapplication.ModelButton
-            android:id="@+id/my_model_button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+<!--        <com.example.portfolioapplication.ModelButton-->
+<!--            android:id="@+id/my_model_button1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content" />-->
 
-        <com.example.portfolioapplication.ModelButton
-            android:id="@+id/my_model_button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+<!--        <com.example.portfolioapplication.ModelButton-->
+<!--            android:id="@+id/my_model_button2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content" />-->
 
         <!--        <include-->
 <!--            android:id="@+id/model_1_button"-->
@@ -56,13 +56,13 @@
 <!--            android:layout_height="wrap_content"-->
 <!--            android:layout_margin="10dp" />-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5">
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="0.5">-->
 
-        </androidx.recyclerview.widget.RecyclerView>
+<!--        </androidx.recyclerview.widget.RecyclerView>-->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

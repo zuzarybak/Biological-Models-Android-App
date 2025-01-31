@@ -34,6 +34,19 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.home_fragment, container, false);
 
+        ModelButton modelButton = new ModelButton(getContext());
+        ModelButton modelButton2 = new ModelButton(getContext());
+        LinearLayout parent = root.findViewById(R.id.parent_linear);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        modelButton.setLayoutParams(params);
+        modelButton2.setLayoutParams(params);
+        parent.addView(modelButton);
+        parent.addView(modelButton2);
+
+
 //        model1Button = root.findViewById(R.id.model_1_button);
 //        model1Text = root.findViewById(R.id.model_1_text);
 //        String formattedText1 = "<big>DNA</big><br><small> (deoxyribonucleic acid) <br> a polymer carrying genetic instructions </small>";
