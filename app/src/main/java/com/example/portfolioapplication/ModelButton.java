@@ -57,6 +57,9 @@ public class ModelButton extends LinearLayout {
             @Override
             public void onClick(View view) {
                 likeIcon.setImageResource(R.drawable.baseline_bookmark_24);
+                LinearLayout parent = (LinearLayout) ModelButton.this.getParent();
+                parent.removeView(ModelButton.this);
+                parent.addView(ModelButton.this, 1);
             }
         });
     }
