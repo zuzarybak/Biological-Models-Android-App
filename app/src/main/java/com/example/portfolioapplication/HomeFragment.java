@@ -1,5 +1,6 @@
 package com.example.portfolioapplication;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
@@ -18,48 +19,45 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 public class HomeFragment extends Fragment {
-    private TextView model1Text;
-    private TextView model2Text;
-    private ImageView model1Image;
-    private ImageView model2Image;
     private ImageButton model1LikeIcon;
     private ImageButton model2LikeIcon;
-    private LinearLayout model1Button;
-    private LinearLayout model2Button;
+
+    ModelButton modelButton1;
+    ModelButton modelButton2;
+
 
     public HomeFragment() {
+
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        modelButton1 = new ModelButton(getContext());
+        modelButton2 = new ModelButton(getContext());
+
         View root = inflater.inflate(R.layout.home_fragment, container, false);
 
-        ModelButton modelButton = new ModelButton(getContext());
-        ModelButton modelButton2 = new ModelButton(getContext());
+        modelButton1.setText("DNA","(deoxyribonucleic acid)", "a polymer carrying genetic instructions");
         LinearLayout parent = root.findViewById(R.id.parent_linear);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        modelButton.setLayoutParams(params);
+        modelButton1.setLayoutParams(params);
         modelButton2.setLayoutParams(params);
-        parent.addView(modelButton);
+        parent.addView(modelButton1);
         parent.addView(modelButton2);
 
+        Drawable likeIcon = getResources().getDrawable(R.drawable.baseline_bookmark_border_24);
 
-//        model1Button = root.findViewById(R.id.model_1_button);
-//        model1Text = root.findViewById(R.id.model_1_text);
-//        String formattedText1 = "<big>DNA</big><br><small> (deoxyribonucleic acid) <br> a polymer carrying genetic instructions </small>";
-//        model1Text.setText(Html.fromHtml(formattedText1, Html.FROM_HTML_MODE_LEGACY));
-//        model1Image = root.findViewById(R.id.model1_image);
-//        model1LikeIcon = root.findViewById(R.id.like_icon1);
-//
-//        model2Button = root.findViewById(R.id.model_2_button);
-//        model2Text = root.findViewById(R.id.model_2_text);
-//        String formattedText2 = "<big>mRNA</big><br><small> (messenger ribonucleic acid) <br> a polymer being a product of transcription";
-//        model2Text.setText(Html.fromHtml(formattedText2, Html.FROM_HTML_MODE_LEGACY));
-//        model2Image = root.findViewById(R.id.model2_image);
-//        model2LikeIcon = root.findViewById(R.id.like_icon2);
+        Drawable image1 = getResources().getDrawable(R.drawable.dna);
+        modelButton1.setImage(image1);
+        modelButton1.setLikeIcon(likeIcon);
+
+        Drawable image2 = getResources().getDrawable(R.drawable.mrna);
+        modelButton2.setImage(image2);
+        modelButton2.setLikeIcon(likeIcon);
+
         return root;
     }
 
@@ -68,13 +66,13 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(requireView());
 
-     /*   model1Button.setOnClickListener(new View.OnClickListener() {
+        modelButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_homeFragment_to_fragment1);
             }
         });
-        model2Button.setOnClickListener(new View.OnClickListener() {
+        modelButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_homeFragment_to_fragment2);
@@ -84,20 +82,20 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 model1LikeIcon.setImageResource(R.drawable.baseline_bookmark_24);
-                if(model1Button.getGravity() != Gravity.TOP) {
-                    model1Button.setGravity(Gravity.TOP);
+                if(modelButton1.getGravity() != Gravity.TOP) {
+                    modelButton1.setGravity(Gravity.TOP);
                 }
             }
-        });*/
-       /* model2LikeIcon.setOnClickListener(new View.OnClickListener() {
+        });
+       model2LikeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 model2LikeIcon.setImageResource(R.drawable.baseline_bookmark_24);
-                if(model2Button.getGravity() != Gravity.TOP) {
-                    model2Button.setGravity(Gravity.TOP);
+                if(modelButton2.getGravity() != Gravity.TOP) {
+                    modelButton2.setGravity(Gravity.TOP);
                 }
             }
-        });*/
+        });
     }
 }
 
