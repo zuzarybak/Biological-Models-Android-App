@@ -53,16 +53,10 @@ public class ModelButton extends LinearLayout {
     public void setLikeIcon(Drawable drawable) {
         likeIcon = findViewById(R.id.like_icon);
         likeIcon.setImageDrawable(drawable);
-    }
-
-    public void saveModel(ModelButton modelButton, NavController navController, Drawable drawable) {
-        modelButton.setOnClickListener(new View.OnClickListener() {
+        likeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                modelButton.setLikeIcon(drawable);
-                if (modelButton.getGravity() != Gravity.TOP) {
-                    modelButton.setGravity(Gravity.TOP);
-                }
+                likeIcon.setImageResource(R.drawable.baseline_bookmark_24);
             }
         });
     }

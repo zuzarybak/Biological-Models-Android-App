@@ -2,16 +2,10 @@ package com.example.portfolioapplication;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.Html;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -19,9 +13,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 public class HomeFragment extends Fragment {
-    private ImageButton model1LikeIcon;
-    private ImageButton model2LikeIcon;
-
     ModelButton modelButton1;
     ModelButton modelButton2;
 
@@ -32,6 +23,7 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         modelButton1 = new ModelButton(getContext());
         modelButton2 = new ModelButton(getContext());
 
@@ -76,24 +68,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 navController.navigate(R.id.action_homeFragment_to_fragment2);
-            }
-        });
-        model1LikeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                model1LikeIcon.setImageResource(R.drawable.baseline_bookmark_24);
-                if(modelButton1.getGravity() != Gravity.TOP) {
-                    modelButton1.setGravity(Gravity.TOP);
-                }
-            }
-        });
-       model2LikeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                model2LikeIcon.setImageResource(R.drawable.baseline_bookmark_24);
-                if(modelButton2.getGravity() != Gravity.TOP) {
-                    modelButton2.setGravity(Gravity.TOP);
-                }
             }
         });
     }
