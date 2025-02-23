@@ -20,24 +20,10 @@
             android:paddingLeft="10dp"
             android:paddingTop="20dp"
             android:paddingBottom="10dp"
-            android:text="MODELS RELATED TO 'GENETICS' : "
+            android:text="MODELS ASSOCIATED WITH 'GENETICS' : "
             android:textColor="#009688"
             android:textSize="20dp"
             android:textStyle="bold" />
-
-        <include
-            android:id="@+id/genetics_model_1_button"
-            layout="@layout/model_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
-
-        <include
-            android:id="@+id/genetics_model_2_button"
-            layout="@layout/model_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
 
     </LinearLayout>
 

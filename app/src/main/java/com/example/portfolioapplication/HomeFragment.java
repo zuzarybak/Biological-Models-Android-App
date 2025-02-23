@@ -16,25 +16,26 @@ public class HomeFragment extends Fragment {
     ModelButton modelButton1;
     ModelButton modelButton2;
 
-
     public HomeFragment() {
 
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        modelButton1 = new ModelButton(getContext());
-        modelButton2 = new ModelButton(getContext());
-
         View root = inflater.inflate(R.layout.home_fragment, container, false);
 
+        modelButton1 = new ModelButton(getContext(), R.id.action_homeFragment_to_fragment1);
+        modelButton2 = new ModelButton(getContext(), R.id.action_homeFragment_to_fragment2);
+
         modelButton1.setText("DNA","(deoxyribonucleic acid)", "a polymer carrying genetic instructions");
+        modelButton2.setText("mRNA","(messenger ribonucleic acid)", "a polymer which is a product of transcription, and a substrate of translation");
+
         LinearLayout parent = root.findViewById(R.id.parent_linear);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
+
         modelButton1.setLayoutParams(params);
         modelButton2.setLayoutParams(params);
         parent.addView(modelButton1);
@@ -58,18 +59,11 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(requireView());
 
-        modelButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_homeFragment_to_fragment1);
-            }
-        });
-        modelButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_homeFragment_to_fragment2);
-            }
-        });
+        modelButton1.setNavController(navController);
+        modelButton2.setNavController(navController);
+
+        modelButton1.clickButton();
+        modelButton2.clickButton();
     }
 }
 

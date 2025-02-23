@@ -1,5 +1,6 @@
 package com.example.portfolioapplication;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
@@ -18,36 +19,44 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 public class GeneticsFragment extends Fragment {
-
-    private TextView model1Text2;
-    private TextView model2Text2;
-    private ImageView model1Image2;
-    private ImageView model2Image2;
-    private ImageButton model1LikeIcon2;
-    private ImageButton model2LikeIcon2;
-    private LinearLayout model1Button2;
-    private LinearLayout model2Button2;
+    ModelButton modelButton1;
+    ModelButton modelButton2;
 
     public GeneticsFragment() {
     }
 
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.genetics_fragment, container, false);
-//        model1Button2 = root.findViewById(R.id.model_1_button);
-//        model1Text2 = root.findViewById(R.id.model_1_text);
-//        String formattedText1 = "<big>DNA</big><br><small> (deoxyribonucleic acid) <br> a polymer carrying genetic instructions </small>";
-//        model1Text2.setText(Html.fromHtml(formattedText1, Html.FROM_HTML_MODE_LEGACY));
-//        model1Image2 = root.findViewById(R.id.model1_image);
-//        model1LikeIcon2 = root.findViewById(R.id.like_icon1);
 
-//        model2Button2 = root.findViewById(R.id.model_2_button);
-//        model2Text2 = root.findViewById(R.id.model_2_text);
-//        String formattedText2 = "<big>mRNA</big><br><small> (messenger ribonucleic acid) <br> a polymer being a product of transcription";
-//        model2Text2.setText(Html.fromHtml(formattedText2, Html.FROM_HTML_MODE_LEGACY));
-//        model2Image2 = root.findViewById(R.id.model2_image);
-//        model2LikeIcon2 = root.findViewById(R.id.like_icon2);
+        modelButton1 = new ModelButton(getContext(), R.id.action_homeFragment_to_fragment1);
+        modelButton2 = new ModelButton(getContext(), R.id.action_homeFragment_to_fragment2);
+
+        View root = inflater.inflate(R.layout.home_fragment, container, false);
+
+        modelButton1.setText("DNA","(deoxyribonucleic acid)", "a polymer carrying genetic instructions");
+        modelButton2.setText("mRNA","(messenger ribonucleic acid)", "a polymer which is a product of transcription, and a substrate of translation");
+
+        LinearLayout parent = root.findViewById(R.id.parent_linear);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+
+        modelButton1.setLayoutParams(params);
+        modelButton2.setLayoutParams(params);
+        parent.addView(modelButton1);
+        parent.addView(modelButton2);
+
+        Drawable likeIcon = getResources().getDrawable(R.drawable.baseline_bookmark_border_24);
+
+        Drawable image1 = getResources().getDrawable(R.drawable.dna);
+        modelButton1.setImage(image1);
+        modelButton1.setLikeIcon(likeIcon);
+
+        Drawable image2 = getResources().getDrawable(R.drawable.mrna);
+        modelButton2.setImage(image2);
+        modelButton2.setLikeIcon(likeIcon);
+
         return root;
     }
 
