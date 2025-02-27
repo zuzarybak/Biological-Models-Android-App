@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -13,11 +14,10 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 public class HomeFragment extends Fragment {
-    ModelButton modelButton1;
-    ModelButton modelButton2;
+    private ModelButton modelButton1;
+    private ModelButton modelButton2;
 
     public HomeFragment() {
-
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,6 +51,8 @@ public class HomeFragment extends Fragment {
         modelButton2.setImage(image2);
         modelButton2.setLikeIcon(likeIcon);
 
+
+
         return root;
     }
 
@@ -61,9 +63,6 @@ public class HomeFragment extends Fragment {
 
         modelButton1.setNavController(navController);
         modelButton2.setNavController(navController);
-
-        modelButton1.clickButton();
-        modelButton2.clickButton();
     }
 }
 

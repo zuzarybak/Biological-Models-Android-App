@@ -100,12 +100,8 @@ public class ModelButton extends LinearLayout {
 
     public void clickButton() {
         System.out.println("click");
-
-        this.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(destinationId);
-            }
-        });
+        navController.navigate(destinationId);
     }
 }
+
+
