@@ -1,6 +1,5 @@
 package com.example.portfolioapplication;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,44 +12,33 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GeneticsFragment extends Fragment {
-    ModelButton modelButton1;
-    ModelButton modelButton2;
+    private List<ModelButton> geneticsButtons = new ArrayList<>();
 
     public GeneticsFragment() {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        geneticsButtons.clear();
 
-        modelButton1 = new ModelButton(getContext(), R.id.action_homeFragment_to_fragment1);
-        modelButton2 = new ModelButton(getContext(), R.id.action_homeFragment_to_fragment2);
+        ModelButtonFactory modelButtonFactory = new ModelButtonFactory();
+
+        ModelButton button1 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.DNA, R.id.action_geneticsFragment_to_fragment1);
+        ModelButton button2 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.MRNA, R.id.action_geneticsFragment_to_fragment2);
+        geneticsButtons.add(button1);
+        geneticsButtons.add(button2);
 
         View root = inflater.inflate(R.layout.genetics_fragment, container, false);
 
-        modelButton1.setText("DNA","(deoxyribonucleic acid)", "a polymer carrying genetic instructions");
-        modelButton2.setText("mRNA","(messenger ribonucleic acid)", "a polymer which is a product of transcription, and a substrate of translation");
-
         LinearLayout parent = root.findViewById(R.id.parent_linear_genetics);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
 
-        modelButton1.setLayoutParams(params);
-        modelButton2.setLayoutParams(params);
-        parent.addView(modelButton1);
-        parent.addView(modelButton2);
-
-        Drawable likeIcon = getResources().getDrawable(R.drawable.baseline_bookmark_border_24);
-
-        Drawable image1 = getResources().getDrawable(R.drawable.dna);
-        modelButton1.setImage(image1);
-        modelButton1.setLikeIcon(likeIcon);
-
-        Drawable image2 = getResources().getDrawable(R.drawable.mrna);
-        modelButton2.setImage(image2);
-        modelButton2.setLikeIcon(likeIcon);
+        for (ModelButton modelButton : geneticsButtons) {
+            parent.addView(modelButton);
+        }
 
         return root;
     }
@@ -60,18 +48,8 @@ public class GeneticsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(requireView());
 
-//        model1LikeIcon2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                model1LikeIcon2.setImageResource(R.drawable.baseline_bookmark_24);
-//            }
-//        });
-//
-//        model2LikeIcon2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                model2LikeIcon2.setImageResource(R.drawable.baseline_bookmark_24);
-//            }
-//        });
+        for (ModelButton modelButton : geneticsButtons) {
+            modelButton.setNavController(navController);
+        }
     }
 }

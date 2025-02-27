@@ -1,5 +1,8 @@
 package com.example.portfolioapplication;
 
+import static com.example.portfolioapplication.ModelButtonType.DNA;
+import static com.example.portfolioapplication.ModelButtonType.MRNA;
+
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,43 +16,29 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeFragment extends Fragment {
-    private ModelButton modelButton1;
-    private ModelButton modelButton2;
+    private List<ModelButton> buttons = new ArrayList<>();
 
     public HomeFragment() {
+
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        buttons.clear();
         View root = inflater.inflate(R.layout.home_fragment, container, false);
-
-        modelButton1 = new ModelButton(getContext(), R.id.action_homeFragment_to_fragment1);
-        modelButton2 = new ModelButton(getContext(), R.id.action_homeFragment_to_fragment2);
-
-        modelButton1.setText("DNA","(deoxyribonucleic acid)", "a polymer carrying genetic instructions");
-        modelButton2.setText("mRNA","(messenger ribonucleic acid)", "a polymer which is a product of transcription, and a substrate of translation");
-
+        ModelButtonFactory factory = new ModelButtonFactory();
+       ModelButton modelButton1 = factory.createButton(getContext(),getResources(),DNA,R.id.action_homeFragment_to_fragment1);
+       ModelButton modelButton2 = factory.createButton(getContext(),getResources(),MRNA,R.id.action_homeFragment_to_fragment2);
         LinearLayout parent = root.findViewById(R.id.parent_linear_home);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-
-        modelButton1.setLayoutParams(params);
-        modelButton2.setLayoutParams(params);
-        parent.addView(modelButton1);
-        parent.addView(modelButton2);
-
-        Drawable likeIcon = getResources().getDrawable(R.drawable.baseline_bookmark_border_24);
-
-        Drawable image1 = getResources().getDrawable(R.drawable.dna);
-        modelButton1.setImage(image1);
-        modelButton1.setLikeIcon(likeIcon);
-
-        Drawable image2 = getResources().getDrawable(R.drawable.mrna);
-        modelButton2.setImage(image2);
-        modelButton2.setLikeIcon(likeIcon);
+        buttons.add(modelButton1);
+        buttons.add(modelButton2);
+        for (ModelButton button : buttons) {
+            parent.addView(button);
+        }
         return root;
     }
 
@@ -57,8 +46,9 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(requireView());
-        modelButton1.setNavController(navController);
-        modelButton2.setNavController(navController);
+        for (ModelButton button : buttons) {
+            button.setNavController(navController);
+        }
     }
 }
 
