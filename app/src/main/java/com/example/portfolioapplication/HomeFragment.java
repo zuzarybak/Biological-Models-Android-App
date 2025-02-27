@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
         modelButton1.setText("DNA","(deoxyribonucleic acid)", "a polymer carrying genetic instructions");
         modelButton2.setText("mRNA","(messenger ribonucleic acid)", "a polymer which is a product of transcription, and a substrate of translation");
 
-        LinearLayout parent = root.findViewById(R.id.parent_linear);
+        LinearLayout parent = root.findViewById(R.id.parent_linear_home);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -50,9 +50,6 @@ public class HomeFragment extends Fragment {
         Drawable image2 = getResources().getDrawable(R.drawable.mrna);
         modelButton2.setImage(image2);
         modelButton2.setLikeIcon(likeIcon);
-
-
-
         return root;
     }
 
@@ -60,7 +57,6 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(requireView());
-
         modelButton1.setNavController(navController);
         modelButton2.setNavController(navController);
     }

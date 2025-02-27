@@ -6,6 +6,7 @@
     android:id="@+id/geneticsFragment" >
 
     <LinearLayout
+        android:id="@+id/parent_linear_genetics"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#9FFFED"

@@ -26,12 +26,12 @@ public class GeneticsFragment extends Fragment {
         modelButton1 = new ModelButton(getContext(), R.id.action_homeFragment_to_fragment1);
         modelButton2 = new ModelButton(getContext(), R.id.action_homeFragment_to_fragment2);
 
-        View root = inflater.inflate(R.layout.home_fragment, container, false);
+        View root = inflater.inflate(R.layout.genetics_fragment, container, false);
 
         modelButton1.setText("DNA","(deoxyribonucleic acid)", "a polymer carrying genetic instructions");
         modelButton2.setText("mRNA","(messenger ribonucleic acid)", "a polymer which is a product of transcription, and a substrate of translation");
 
-        LinearLayout parent = root.findViewById(R.id.parent_linear);
+        LinearLayout parent = root.findViewById(R.id.parent_linear_genetics);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
