@@ -4,12 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-public class Model2Fragment extends Fragment {
-    public Model2Fragment() {
+public class ModelMrnaFragment extends Fragment {
+    public ModelMrnaFragment() {
     }
 
     @Override

@@ -25,16 +25,17 @@ public class GeneticsFragment extends Fragment {
                              Bundle savedInstanceState) {
         geneticsButtons.clear();
 
-        ModelButtonFactory modelButtonFactory = new ModelButtonFactory();
-
-        ModelButton button1 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.DNA, R.id.action_geneticsFragment_to_fragment1);
-        ModelButton button2 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.MRNA, R.id.action_geneticsFragment_to_fragment2);
-        geneticsButtons.add(button1);
-        geneticsButtons.add(button2);
-
         View root = inflater.inflate(R.layout.genetics_fragment, container, false);
 
+        ModelButtonFactory modelButtonFactory = new ModelButtonFactory();
+
+        ModelButton button1 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.DNA);
+        ModelButton button2 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.MRNA);
+
         LinearLayout parent = root.findViewById(R.id.parent_linear_genetics);
+
+        geneticsButtons.add(button1);
+        geneticsButtons.add(button2);
 
         for (ModelButton modelButton : geneticsButtons) {
             parent.addView(modelButton);
@@ -46,10 +47,10 @@ public class GeneticsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        NavController navController = Navigation.findNavController(requireView());
 
+        /* mNavController navController = Navigation.findNavController(requireView());
         for (ModelButton modelButton : geneticsButtons) {
             modelButton.setNavController(navController);
-        }
+        } */
     }
 }

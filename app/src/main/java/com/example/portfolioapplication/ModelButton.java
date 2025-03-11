@@ -12,21 +12,25 @@ import android.text.Html;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 
 public class ModelButton extends LinearLayout {
 
-    NavController navController;
+    //NavController navController;
     private TextView textView;
     private ImageView image;
     private ImageButton likeIcon;
-    private int destinationId;
+    private Fragment destination;
+    //private int destinationId;
     private boolean isLiked;
 
-    public ModelButton(Context context, int destinationId) {
+    public ModelButton(Context context, Fragment destination) {
         super(context);
         init(context);
-        this.destinationId = destinationId;
+        this.destination = destination;
 
     }
 
@@ -51,9 +55,9 @@ public class ModelButton extends LinearLayout {
             }
         });
     }
-    public void setNavController(NavController navController) {
+    /* public void setNavController(NavController navController) {
         this.navController = navController;
-    }
+    } */
 
     public void setText(String title, String subtitle, String description) {
         String formattedText = "<big>" + title + "</big><br><small>" + subtitle + "<br>" + description;
@@ -97,10 +101,10 @@ public class ModelButton extends LinearLayout {
             }
         });
     }
-
     public void clickButton() {
         System.out.println("click");
-        navController.navigate(destinationId);
+        ((MainActivity) getContext()).loadFragment(destination);
+        //navController.navigate(destinationId);
     }
 }
 

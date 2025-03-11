@@ -2,13 +2,27 @@ package com.example.portfolioapplication;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.ColorSpace;
 import android.graphics.drawable.Drawable;
 import android.widget.LinearLayout;
 
+import androidx.fragment.app.Fragment;
+
 public class ModelButtonFactory {
 
-    public ModelButton createButton(Context context, Resources resources,  ModelButtonType type, int actionId) {
-       ModelButton result = new ModelButton(context, actionId);
+    public ModelButton createButton(Context context, Resources resources,  ModelButtonType type) {
+        Fragment destination;
+
+       if (type == ModelButtonType.DNA) {
+           destination = new ModelDnaFragment();
+       } else if (type == ModelButtonType.MRNA) {
+           destination = new ModelMrnaFragment();
+       } else {
+           throw new IllegalStateException("Nie rozpoznany model type");
+       }
+
+       ModelButton result = new ModelButton(context, destination);
+        //ModelButton result = new ModelButton(context, actionId);
 
         result.setText(type.getTitle(),type.getSubtitle(), type.getDescription());
 

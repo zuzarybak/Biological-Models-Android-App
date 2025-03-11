@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#9FFFED"
@@ -35,7 +36,7 @@
             app:navGraph="@navigation/nav_graph"
             app:defaultNavHost="true" />
 
-    </LinearLayout>
+    </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"

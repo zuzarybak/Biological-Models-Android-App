@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/model1Fragment"
-        android:name="com.example.portfolioapplication.Model1Fragment"
+        android:name="com.example.portfolioapplication.ModelDnaFragment"
         android:label="MODEL 1" >
         <action
             android:id="@+id/action_fragment1_to_fragment2"
@@ -47,7 +47,7 @@
 
     <fragment
         android:id="@+id/model2Fragment"
-        android:name="com.example.portfolioapplication.Model2Fragment"
+        android:name="com.example.portfolioapplication.ModelMrnaFragment"
         android:label="MODEL 2" >
         <action
             android:id="@+id/action_fragment2_to_fragment1"
