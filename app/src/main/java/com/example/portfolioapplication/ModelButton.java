@@ -12,7 +12,9 @@ import android.text.Html;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.navigation.NavAction;
 import androidx.navigation.NavController;
+import androidx.navigation.NavGraph;
 
 public class ModelButton extends LinearLayout {
 
@@ -51,8 +53,12 @@ public class ModelButton extends LinearLayout {
             }
         });
     }
-    public void setNavController(NavController navController) {
+    public void setNavController(NavController navController,int fromId) {
         this.navController = navController;
+        NavGraph navGraph = navController.getGraph();
+        NavAction dynamicAction = new NavAction(destinationId);
+        navGraph.putAction(fromId, dynamicAction);
+        navController.setGraph(navGraph);
     }
 
     public void setText(String title, String subtitle, String description) {

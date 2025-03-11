@@ -31,8 +31,8 @@ public class HomeFragment extends Fragment {
         buttons.clear();
         View root = inflater.inflate(R.layout.home_fragment, container, false);
         ModelButtonFactory factory = new ModelButtonFactory();
-       ModelButton modelButton1 = factory.createButton(getContext(),getResources(),DNA,R.id.action_homeFragment_to_fragment1);
-       ModelButton modelButton2 = factory.createButton(getContext(),getResources(),MRNA,R.id.action_homeFragment_to_fragment2);
+       ModelButton modelButton1 = factory.createButton(getContext(),getResources(),DNA);
+       ModelButton modelButton2 = factory.createButton(getContext(),getResources(),MRNA);
         LinearLayout parent = root.findViewById(R.id.parent_linear_home);
         buttons.add(modelButton1);
         buttons.add(modelButton2);
@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(requireView());
         for (ModelButton button : buttons) {
-            button.setNavController(navController);
+            button.setNavController(navController,R.id.homeFragment);
         }
     }
 }

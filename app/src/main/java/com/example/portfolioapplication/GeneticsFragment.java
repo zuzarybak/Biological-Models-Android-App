@@ -27,8 +27,8 @@ public class GeneticsFragment extends Fragment {
 
         ModelButtonFactory modelButtonFactory = new ModelButtonFactory();
 
-        ModelButton button1 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.DNA, R.id.action_geneticsFragment_to_fragment1);
-        ModelButton button2 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.MRNA, R.id.action_geneticsFragment_to_fragment2);
+        ModelButton button1 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.DNA);
+        ModelButton button2 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.MRNA);
         geneticsButtons.add(button1);
         geneticsButtons.add(button2);
 
@@ -49,7 +49,7 @@ public class GeneticsFragment extends Fragment {
         NavController navController = Navigation.findNavController(requireView());
 
         for (ModelButton modelButton : geneticsButtons) {
-            modelButton.setNavController(navController);
+            modelButton.setNavController(navController,R.id.geneticsFragment);
         }
     }
 }
