@@ -12,25 +12,23 @@ import android.text.Html;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavAction;
 import androidx.navigation.NavController;
+import androidx.navigation.NavGraph;
 
 public class ModelButton extends LinearLayout {
 
-    //NavController navController;
+    NavController navController;
     private TextView textView;
     private ImageView image;
     private ImageButton likeIcon;
-    private Fragment destination;
-    //private int destinationId;
+    private int destinationId;
     private boolean isLiked;
 
-    public ModelButton(Context context, Fragment destination) {
+    public ModelButton(Context context, int destinationId) {
         super(context);
         init(context);
-        this.destination = destination;
+        this.destinationId = destinationId;
 
     }
 
@@ -55,9 +53,13 @@ public class ModelButton extends LinearLayout {
             }
         });
     }
-    /* public void setNavController(NavController navController) {
+    public void setNavController(NavController navController,int fromId) {
         this.navController = navController;
-    } */
+        NavGraph navGraph = navController.getGraph();
+        NavAction dynamicAction = new NavAction(destinationId);
+        navGraph.putAction(fromId, dynamicAction);
+        navController.setGraph(navGraph);
+    }
 
     public void setText(String title, String subtitle, String description) {
         String formattedText = "<big>" + title + "</big><br><small>" + subtitle + "<br>" + description;
@@ -101,10 +103,10 @@ public class ModelButton extends LinearLayout {
             }
         });
     }
+
     public void clickButton() {
         System.out.println("click");
-        ((MainActivity) getContext()).loadFragment(destination);
-        //navController.navigate(destinationId);
+        navController.navigate(destinationId);
     }
 }
 
