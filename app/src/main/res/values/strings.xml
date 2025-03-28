@@ -5,4 +5,5 @@
     <string name="dna_button_description"> DNA (deoxyribonucleic acid) : a polymer carrying genetic instructions </string>
     <string name="rna_button_description"> mRNA (messenger ribonucleic acid) : a polymer which is a product of transcription, and a substrate of translation </string>
     <string name="genetics_button_description">"GENETICS"</string>
+    <string name="nucleic_acids_button_description" >"NUCLEIC ACIDS"</string>
 </resources>

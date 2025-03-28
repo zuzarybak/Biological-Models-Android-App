@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
         <item
-            android:id= "@+id/action_homeFragment_to_geneticsFragment"
+            android:id= "@+id/genetics_label"
             android:icon="@drawable/dnastrand"
-            android:title= "@string/genetics_button_description" />
+            android:title= "@string/genetics_button_description" >
+
+            <menu>
+                <item
+                    android:id= "@+id/action_homeFragment_to_nucleicAcidsFragment"
+                    android:icon="@drawable/baseline_arrow_forward_ios_7"
+                    android:title= "@string/nucleic_acids_button_description" />
+            </menu>
+        </item>
     </group>
 </menu>

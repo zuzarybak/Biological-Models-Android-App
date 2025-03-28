@@ -15,26 +15,27 @@ import androidx.navigation.Navigation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GeneticsFragment extends Fragment {
+public class NucleicAcidsFragment extends Fragment {
     private List<ModelButton> geneticsButtons = new ArrayList<>();
 
-    public GeneticsFragment() {
+    public NucleicAcidsFragment() {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         geneticsButtons.clear();
 
+        View root = inflater.inflate(R.layout.nucleic_acids_fragment, container, false);
+
         ModelButtonFactory modelButtonFactory = new ModelButtonFactory();
 
         ModelButton button1 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.DNA);
         ModelButton button2 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.MRNA);
-        geneticsButtons.add(button1);
-        geneticsButtons.add(button2);
-
-        View root = inflater.inflate(R.layout.genetics_fragment, container, false);
 
         LinearLayout parent = root.findViewById(R.id.parent_linear_genetics);
+
+        geneticsButtons.add(button1);
+        geneticsButtons.add(button2);
 
         for (ModelButton modelButton : geneticsButtons) {
             parent.addView(modelButton);

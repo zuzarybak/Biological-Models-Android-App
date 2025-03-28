@@ -17,7 +17,18 @@
         android:orientation="vertical"
         android:padding="8dp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="27dp">
+        tools:layout_editor_absoluteY="27dp"
+        tools:ignore="MissingConstraints">
+
+    <LinearLayout
+        android:id="@+id/top_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight = "1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:backgroundTint="#9FFFED"
+        android:orientation="vertical"
+        android:padding="8dp" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -30,39 +41,32 @@
             android:textColor="#009688"
             android:textSize="20dp"
             android:textStyle="bold" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/bottom_linear_home"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight = "1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:backgroundTint="#9FFFED"
+        android:orientation="vertical"
+        android:padding="8dp" >
 
-<!--        <com.example.portfolioapplication.ModelButton-->
-<!--            android:id="@+id/my_model_button1"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content" />-->
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:paddingLeft="10dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="10dp"
+            android:text="RECENTLY VIEWED MODELS: "
+            android:textColor="#009688"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-<!--        <com.example.portfolioapplication.ModelButton-->
-<!--            android:id="@+id/my_model_button2"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content" />-->
-
-        <!--        <include-->
-<!--            android:id="@+id/model_1_button"-->
-<!--            layout="@layout/model_button"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp" />-->
-
-<!--        <include-->
-<!--            android:id="@+id/model_2_button"-->
-<!--            layout="@layout/model_button"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp" />-->
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/recyclerView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_weight="0.5">-->
-
-<!--        </androidx.recyclerview.widget.RecyclerView>-->
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

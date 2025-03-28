@@ -9,38 +9,26 @@
         android:name="com.example.portfolioapplication.HomeFragment"
         android:label="MENU" >
         <action
-            android:id="@+id/action_homeFragment_to_geneticsFragment"
+            android:id="@+id/action_homeFragment_to_nucleicAcidsFragment"
             app:destination="@id/geneticsFragment" />
     </fragment>
 
     <fragment
         android:id="@id/geneticsFragment"
-        android:name="com.example.portfolioapplication.GeneticsFragment"
-        android:label="GENETICS" >
+        android:name="com.example.portfolioapplication.NucleicAcidsFragment"
+        android:label="NUCLEIC ACIDS" >
     </fragment>
 
     <fragment
         android:id="@+id/model1Fragment"
         android:name="com.example.portfolioapplication.ModelDnaFragment"
         android:label="MODEL 1" >
-<!--        <action-->
-<!--            android:id="@+id/action_fragment1_to_fragment2"-->
-<!--            app:destination="@id/model2Fragment" />-->
-<!--        <action-->
-<!--            android:id="@+id/action_fragment1_to_geneticsFragment"-->
-<!--            app:destination="@id/geneticsFragment" />-->
     </fragment>
 
     <fragment
         android:id="@+id/model2Fragment"
         android:name="com.example.portfolioapplication.ModelMrnaFragment"
         android:label="MODEL 2" >
-<!--        <action-->
-<!--            android:id="@+id/action_fragment2_to_fragment1"-->
-<!--            app:destination="@id/model1Fragment" />-->
-<!--        <action-->
-<!--            android:id="@+id/action_fragment2_to_geneticsFragment"-->
-<!--            app:destination="@id/geneticsFragment" />-->
     </fragment>
 
 </navigation>

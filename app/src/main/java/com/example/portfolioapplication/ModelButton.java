@@ -105,8 +105,9 @@ public class ModelButton extends LinearLayout {
     }
 
     public void clickButton() {
-        System.out.println("click");
         navController.navigate(destinationId);
+
+
     }
 }
 
