@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 
 public class ModelButtonFactory {
 
-    public ModelButton createButton(Context context, Resources resources,  ModelButtonType type) {
+    public ModelButtonView createButton(Context context, Resources resources, ModelButtonType type) {
        int destinationId;
 
        if (type == ModelButtonType.DNA) {
@@ -18,7 +18,7 @@ public class ModelButtonFactory {
            throw new IllegalStateException("nie wykryto model type");
        }
 
-        ModelButton result = new ModelButton(context, destinationId);
+        ModelButtonView result = new ModelButtonView(context, destinationId);
 
         result.setText(type.getTitle(),type.getSubtitle(), type.getDescription());
 

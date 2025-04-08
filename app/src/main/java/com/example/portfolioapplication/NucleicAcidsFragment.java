@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NucleicAcidsFragment extends Fragment {
-    private List<ModelButton> geneticsButtons = new ArrayList<>();
+    private List<ModelButtonView> geneticsButtons = new ArrayList<>();
 
     public NucleicAcidsFragment() {
     }
@@ -29,15 +29,15 @@ public class NucleicAcidsFragment extends Fragment {
 
         ModelButtonFactory modelButtonFactory = new ModelButtonFactory();
 
-        ModelButton button1 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.DNA);
-        ModelButton button2 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.MRNA);
+        ModelButtonView button1 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.DNA);
+        ModelButtonView button2 = modelButtonFactory.createButton(getContext(), getResources(), ModelButtonType.MRNA);
 
         LinearLayout parent = root.findViewById(R.id.parent_linear_genetics);
 
         geneticsButtons.add(button1);
         geneticsButtons.add(button2);
 
-        for (ModelButton modelButton : geneticsButtons) {
+        for (ModelButtonView modelButton : geneticsButtons) {
             parent.addView(modelButton);
         }
 
@@ -49,7 +49,7 @@ public class NucleicAcidsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(requireView());
 
-        for (ModelButton modelButton : geneticsButtons) {
+        for (ModelButtonView modelButton : geneticsButtons) {
             modelButton.setNavController(navController,R.id.geneticsFragment);
         }
     }

@@ -10,13 +10,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.text.Html;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.navigation.NavAction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavGraph;
 
-public class ModelButton extends LinearLayout {
+public class ModelButtonView extends LinearLayout {
 
     NavController navController;
     private TextView textView;
@@ -25,19 +24,19 @@ public class ModelButton extends LinearLayout {
     private int destinationId;
     private boolean isLiked;
 
-    public ModelButton(Context context, int destinationId) {
+    public ModelButtonView(Context context, int destinationId) {
         super(context);
         init(context);
         this.destinationId = destinationId;
 
     }
 
-    public ModelButton(Context context, @Nullable AttributeSet attrs) {
+    public ModelButtonView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public ModelButton(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public ModelButtonView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -96,9 +95,9 @@ public class ModelButton extends LinearLayout {
                 } else {
                     likeIcon.setImageResource(R.drawable.baseline_bookmark_24);
                     isLiked = true;
-                    LinearLayout parent = (LinearLayout) ModelButton.this.getParent();
-                    parent.removeView(ModelButton.this);
-                    parent.addView(ModelButton.this, 1);
+                    LinearLayout parent = (LinearLayout) ModelButtonView.this.getParent();
+                    parent.removeView(ModelButtonView.this);
+                    parent.addView(ModelButtonView.this, 1);
                 }
             }
         });

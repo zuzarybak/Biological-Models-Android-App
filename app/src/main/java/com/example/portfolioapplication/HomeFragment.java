@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-    private List<ModelButton> buttons = new ArrayList<>();
+    private List<ModelButtonView> buttons = new ArrayList<>();
 
     public HomeFragment() {
 
@@ -32,12 +31,12 @@ public class HomeFragment extends Fragment {
         buttons.clear();
         View root = inflater.inflate(R.layout.home_fragment, container, false);
         ModelButtonFactory factory = new ModelButtonFactory();
-        ModelButton modelButton1 = factory.createButton(getContext(),getResources(),DNA);
-        ModelButton modelButton2 = factory.createButton(getContext(),getResources(),MRNA);
+        ModelButtonView modelButton1 = factory.createButton(getContext(),getResources(),DNA);
+        ModelButtonView modelButton2 = factory.createButton(getContext(),getResources(),MRNA);
         LinearLayout topLinearLayout = root.findViewById(R.id.top_linear_layout);
         buttons.add(modelButton1);
         buttons.add(modelButton2);
-        for (ModelButton button : buttons) {
+        for (ModelButtonView button : buttons) {
             topLinearLayout.addView(button);
         }
 
@@ -48,7 +47,7 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(requireView());
-        for (ModelButton button : buttons) {
+        for (ModelButtonView button : buttons) {
             button.setNavController(navController, R.id.homeFragment);
         }
     }
