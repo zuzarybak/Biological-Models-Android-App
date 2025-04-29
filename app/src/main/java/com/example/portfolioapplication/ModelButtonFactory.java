@@ -6,9 +6,15 @@ import android.graphics.drawable.Drawable;
 import android.widget.LinearLayout;
 
 public class ModelButtonFactory {
+    private ModelButtonViewModel modelButtonViewModel;
 
-    public ModelButtonView createButton(Context context, Resources resources, ModelButtonType type) {
+    ModelButtonFactory(ModelButtonViewModel modelButtonViewModel) {
+        this.modelButtonViewModel = modelButtonViewModel;
+    }
+
+    public ModelButtonView createButton(Context context, ModelButtonData modelButtonData) {
        int destinationId;
+       ModelButtonType type = modelButtonData.getType();
 
        if (type == ModelButtonType.DNA) {
            destinationId = R.id.model1Fragment;
@@ -18,9 +24,7 @@ public class ModelButtonFactory {
            throw new IllegalStateException("nie wykryto model type");
        }
 
-        ModelButtonView result = new ModelButtonView(context, destinationId);
-
-        result.setText(type.getTitle(),type.getSubtitle(), type.getDescription());
+        ModelButtonView result = new ModelButtonView(context, destinationId, modelButtonData);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -28,11 +32,7 @@ public class ModelButtonFactory {
         );
 
         result.setLayoutParams(params);
-        Drawable likeIcon = resources.getDrawable(R.drawable.baseline_bookmark_border_24);
-
-        Drawable image1 = resources.getDrawable(type.getImage());
-        result.setImage(image1);
-        result.setLikeIcon(likeIcon);
+        result.setLikeAction(() -> modelButtonViewModel.toggleLike(modelButtonData));
         return result;
     }
 

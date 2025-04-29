@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -21,6 +22,11 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
     private List<ModelButtonView> buttons = new ArrayList<>();
+    private ModelButtonRepository repository;
+
+    private ModelButtonViewModel modelButtonViewModel;
+
+    LinearLayout topLinearLayout;
 
     public HomeFragment() {
 
@@ -28,19 +34,37 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        buttons.clear();
+        modelButtonViewModel = new ViewModelProvider(this).get(ModelButtonViewModel.class);
+
+        modelButtonViewModel.getModelButtonLiveData().observe(
+                getViewLifecycleOwner(),
+                modelButtons -> refreshModelButtonViews(modelButtons)
+        );
         View root = inflater.inflate(R.layout.home_fragment, container, false);
+        topLinearLayout = root.findViewById(R.id.top_linear_layout);
+    /*    buttons.clear();
+
         ModelButtonFactory factory = new ModelButtonFactory();
         ModelButtonView modelButton1 = factory.createButton(getContext(),getResources(),DNA);
         ModelButtonView modelButton2 = factory.createButton(getContext(),getResources(),MRNA);
-        LinearLayout topLinearLayout = root.findViewById(R.id.top_linear_layout);
         buttons.add(modelButton1);
         buttons.add(modelButton2);
+
         for (ModelButtonView button : buttons) {
             topLinearLayout.addView(button);
-        }
+        }*/
 
         return root;
+    }
+
+    private void refreshModelButtonViews(List<ModelButtonData> modelButtons) {
+        topLinearLayout.removeAllViews();
+        ModelButtonFactory factory = new ModelButtonFactory(modelButtonViewModel);
+        for (ModelButtonData modelButton : modelButtons) {
+            ModelButtonView modelButtonView = factory.createButton(getContext(), modelButton);
+            topLinearLayout.addView(modelButtonView);
+            //todo podpiąć toggle na ViewModel pod akcję kliknięcia oraz informację o stanie like wyciągać z ModelButtonData
+        }
     }
 
     @Override
@@ -52,4 +76,7 @@ public class HomeFragment extends Fragment {
         }
     }
 }
+
+//Fragment -> składa całość wyłapuje kliknięcie, pobiera zaktualizowane przyciski
+
 

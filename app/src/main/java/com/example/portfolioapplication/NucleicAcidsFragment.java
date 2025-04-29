@@ -16,16 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NucleicAcidsFragment extends Fragment {
-    private List<ModelButtonView> geneticsButtons = new ArrayList<>();
+//    private List<ModelButtonView> geneticsButtons = new ArrayList<>();
 
     public NucleicAcidsFragment() {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        geneticsButtons.clear();
-
         View root = inflater.inflate(R.layout.nucleic_acids_fragment, container, false);
+     /*   geneticsButtons.clear();
+
+
 
         ModelButtonFactory modelButtonFactory = new ModelButtonFactory();
 
@@ -39,7 +40,7 @@ public class NucleicAcidsFragment extends Fragment {
 
         for (ModelButtonView modelButton : geneticsButtons) {
             parent.addView(modelButton);
-        }
+        }*/
 
         return root;
     }
@@ -49,8 +50,8 @@ public class NucleicAcidsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(requireView());
 
-        for (ModelButtonView modelButton : geneticsButtons) {
+       /* for (ModelButtonView modelButton : geneticsButtons) {
             modelButton.setNavController(navController,R.id.geneticsFragment);
-        }
+        }*/
     }
 }

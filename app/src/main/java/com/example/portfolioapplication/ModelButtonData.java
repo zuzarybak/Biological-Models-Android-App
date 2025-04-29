@@ -15,23 +15,19 @@ public class ModelButtonData {
         return type;
     }
 
-    public void setType(ModelButtonType type) {
-        this.type = type;
-    }
-
     public boolean isLiked() {
         return liked;
-    }
-
-    public void setLiked(boolean liked) {
-        this.liked = liked;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void toggleLike() {
+        if (liked) {
+            liked = false;
+        } else {
+            liked = true;
+        }
     }
 }

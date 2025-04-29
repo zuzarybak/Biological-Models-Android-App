@@ -22,35 +22,45 @@ public class ModelButtonView extends LinearLayout {
     private ImageView image;
     private ImageButton likeIcon;
     private int destinationId;
-    private boolean isLiked;
+    private Runnable likeAction;
+    private ModelButtonData data;
 
-    public ModelButtonView(Context context, int destinationId) {
+    public ModelButtonView(Context context, int destinationId, ModelButtonData data) {
         super(context);
-        init(context);
         this.destinationId = destinationId;
-
-    }
-
-    public ModelButtonView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+        this.data = data;
         init(context);
     }
 
-    public ModelButtonView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public ModelButtonView(Context context, @Nullable AttributeSet attrs, ModelButtonData data) {
+        super(context, attrs);
+        this.data = data;
+        init(context);
+    }
+
+    public ModelButtonView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, ModelButtonData data) {
         super(context, attrs, defStyleAttr);
+        this.data = data;
         init(context);
     }
 
     private void init(Context context) {
         inflate(context, R.layout.model_button, this);
         textView = findViewById(R.id.model_button_text);
+        setText(data.getType().getTitle(), data.getType().getSubtitle(), data.getType().getDescription());
+
+
+        setLikeIcon();
+
+        Drawable image1 = getResources().getDrawable(data.getType().getImage());
+        setImage(image1);
 
         this.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clickButton();
             }
-        });
+        }); //todo : dalsza inicjacja na bazie model button data
     }
     public void setNavController(NavController navController,int fromId) {
         this.navController = navController;
@@ -83,30 +93,32 @@ public class ModelButtonView extends LinearLayout {
         });
     }
 
-    public void setLikeIcon(Drawable drawable) {
+    public void setLikeIcon() {
+        Drawable drawable = getResources().getDrawable(R.drawable.baseline_bookmark_border_24);
+        //todo : jak poprawić drawable
         likeIcon = findViewById(R.id.like_icon);
         likeIcon.setImageDrawable(drawable);
+
+        if (data.isLiked()) {
+            likeIcon.setImageResource(R.drawable.baseline_bookmark_24);
+        } else {
+            likeIcon.setImageResource(R.drawable.baseline_bookmark_border_24);
+        }
+
         likeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isLiked) {
-                    likeIcon.setImageResource(R.drawable.baseline_bookmark_border_24);
-                    isLiked = false;
-                } else {
-                    likeIcon.setImageResource(R.drawable.baseline_bookmark_24);
-                    isLiked = true;
-                    LinearLayout parent = (LinearLayout) ModelButtonView.this.getParent();
-                    parent.removeView(ModelButtonView.this);
-                    parent.addView(ModelButtonView.this, 1);
-                }
+                likeAction.run();
             }
         });
     }
 
     public void clickButton() {
         navController.navigate(destinationId);
+    }
 
-
+    public void setLikeAction(Runnable likeAction) {
+        this.likeAction = likeAction;
     }
 }
 
