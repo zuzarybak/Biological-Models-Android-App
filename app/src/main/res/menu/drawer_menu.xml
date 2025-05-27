@@ -9,7 +9,7 @@
 
             <menu>
                 <item
-                    android:id= "@+id/action_homeFragment_to_nucleicAcidsFragment"
+                    android:id= "@+id/action_buttonsContainer_to_nucleicAcidsFragment"
                     android:icon="@drawable/baseline_arrow_forward_ios_7"
                     android:title= "@string/nucleic_acids_button_description" />
             </menu>

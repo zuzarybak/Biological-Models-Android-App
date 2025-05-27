@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = navHostFragment.getNavController();
 
         appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.homeFragment
+                R.id.buttonsContainer
         ).setOpenableLayout(drawerLayout)
                 .build();
 

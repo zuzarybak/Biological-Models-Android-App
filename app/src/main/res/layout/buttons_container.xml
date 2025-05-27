@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/buttonsContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/parent_linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:backgroundTint="#9FFFED"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="8dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="27dp"
+        tools:ignore="MissingConstraints">
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:text=""
+        android:textColor="#009688"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/buttons_container_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#9FFFED"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-54dp"
+        tools:layout_editor_absoluteY="0dp">
+
+    </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

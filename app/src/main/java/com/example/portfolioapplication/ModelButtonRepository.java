@@ -2,6 +2,8 @@ package com.example.portfolioapplication;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ModelButtonRepository {
     private List <ModelButtonData> modelButtons;
@@ -16,6 +18,12 @@ public class ModelButtonRepository {
 
     public List <ModelButtonData> getAllButtons() {
         return modelButtons;
+    }
+
+    public List <ModelButtonData> getSpecificButtons(List <ModelButtonType> specificButtons) {
+        return modelButtons.stream()
+                .filter(button -> specificButtons.contains(button.getType()))
+                .collect(Collectors.toList());
     }
 
     public static ModelButtonRepository getInstance() {
