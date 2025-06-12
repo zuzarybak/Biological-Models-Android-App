@@ -21,8 +21,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final String TAG = "MainActivity";
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;

@@ -4,6 +4,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/buttonsContainer">
 
+
     <fragment
         android:id="@+id/buttonsContainer"
         android:name="com.example.portfolioapplication.HomeFragment"
@@ -11,12 +12,27 @@
         <action
             android:id="@+id/action_buttonsContainer_to_nucleicAcidsFragment"
             app:destination="@id/nucleicAcidsFragment" />
+        <action
+            android:id="@+id/action_buttonsContainer_to_recentlyViewedFragment"
+            app:destination="@id/recentlyViewedFragment" />
+        <!-- musi być inna lokalizacja -->
     </fragment>
+
 
     <fragment
         android:id="@id/nucleicAcidsFragment"
         android:name="com.example.portfolioapplication.NucleicAcidsFragment"
-        android:label="NUCLEIC ACIDS" >
+        android:label="" >
+        <!-- <action
+            android:id="@+id/action_buttonsContainer_to_nucleicAcidsFragment"
+            app:destination="@id/nucleicAcidsFragment" /> -->
+    </fragment>
+
+
+    <fragment
+        android:id="@id/recentlyViewedFragment"
+        android:name="com.example.portfolioapplication.RecentlyViewedFragment"
+        android:label="" >
     </fragment>
 
     <fragment

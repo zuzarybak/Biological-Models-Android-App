@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/nucleicAcidsFragment" >
+    android:id="@+id/recentlyViewedFragment" >
 
     <LinearLayout
-        android:id="@+id/parent_linear_genetics"
+        android:id="@+id/recently_viewed_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#9FFFED"
@@ -21,7 +21,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="20dp"
             android:paddingBottom="10dp"
-            android:text=""
+            android:text="YOUR RECENTLY VIEWED MODELS : "
             android:textColor="#009688"
             android:textSize="20dp"
             android:textStyle="bold" />

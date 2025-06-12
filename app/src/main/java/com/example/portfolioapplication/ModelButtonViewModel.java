@@ -13,6 +13,8 @@ public class ModelButtonViewModel extends ViewModel {
 
     private List <ModelButtonType> specificTypes = new ArrayList<>();
 
+    private final MutableLiveData<List<ModelButtonType>> likedModels = new MutableLiveData<>(new ArrayList<>());
+
     public ModelButtonViewModel () {
         modelButtonRepository = ModelButtonRepository.getInstance();
         modelButtonLiveData = new MutableLiveData<>();
@@ -36,5 +38,27 @@ public class ModelButtonViewModel extends ViewModel {
     public void setSpecificTypes(List<ModelButtonType> specificTypes) {
         this.specificTypes = specificTypes;
         loadModelButtons();
+    }
+
+    public void setLikedTypes() {
+        List <ModelButtonType> likedButtonTypes = new ArrayList<>();
+        for (ModelButtonData likedButton : modelButtonRepository.getLikedButtons()) {
+            ModelButtonType type = likedButton.getType();
+            likedButtonTypes.add(type);
+        }
+        setSpecificTypes(likedButtonTypes);
+    }
+
+
+    public LiveData<List<ModelButtonType>> getLikedModels() {
+        return likedModels;
+    }
+
+    public void likeModel(ModelButtonType modelButtonType) {
+        List<ModelButtonType> currentList = new ArrayList<>(likedModels.getValue());
+        if (!currentList.contains(modelButtonType)) {
+            currentList.add(modelButtonType);
+            likedModels.setValue(currentList);
+        }
     }
 }

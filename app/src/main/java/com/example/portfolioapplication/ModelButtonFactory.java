@@ -5,6 +5,9 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.widget.LinearLayout;
 
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
 public class ModelButtonFactory {
     private ModelButtonViewModel modelButtonViewModel;
 

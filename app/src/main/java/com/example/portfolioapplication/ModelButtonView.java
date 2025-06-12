@@ -95,12 +95,14 @@ public class ModelButtonView extends LinearLayout {
 
     public void setLikeIcon() {
         Drawable drawable = getResources().getDrawable(R.drawable.baseline_bookmark_border_24);
-        //todo : jak poprawić drawable
         likeIcon = findViewById(R.id.like_icon);
         likeIcon.setImageDrawable(drawable);
 
         if (data.isLiked()) {
             likeIcon.setImageResource(R.drawable.baseline_bookmark_24);
+            /* if (onLikeListener != null) {
+                onLikeListener.onModelLiked(ModelButton.this);
+            } */
         } else {
             likeIcon.setImageResource(R.drawable.baseline_bookmark_border_24);
         }

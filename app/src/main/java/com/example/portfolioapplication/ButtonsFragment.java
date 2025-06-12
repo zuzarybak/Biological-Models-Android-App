@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,14 +19,18 @@ abstract class ButtonsFragment extends Fragment {
     private ModelButtonViewModel modelButtonViewModel;
     private LinearLayout buttonsContainerLayout;
 
-    public abstract List<ModelButtonType> getButtonTypes();
+    private ButtonSelectionStrategy strategy;
+
+    public abstract ButtonSelectionStrategy createStrategy();
     public abstract String getTitle();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         modelButtonViewModel = new ViewModelProvider(this).get(ModelButtonViewModel.class);
-        modelButtonViewModel.setSpecificTypes(getButtonTypes());
+        //modelButtonViewModel.setSpecificTypes(getButtonTypes());
+        strategy = createStrategy();
+        strategy.selectButtons(modelButtonViewModel);
         modelButtonViewModel.getModelButtonLiveData().observe(
                 getViewLifecycleOwner(),
                 modelButtons -> refreshModelButtonViews(modelButtons)
@@ -52,6 +57,10 @@ abstract class ButtonsFragment extends Fragment {
 
     int getFragmentId() {
         return R.id.buttons_container_layout;
+    }
+
+    public void setStrategy(ButtonSelectionStrategy strategy) {
+        this.strategy = strategy;
     }
 }
 

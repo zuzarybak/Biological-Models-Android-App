@@ -2,7 +2,6 @@ package com.example.portfolioapplication;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class ModelButtonRepository {
@@ -28,6 +27,12 @@ public class ModelButtonRepository {
 
     public static ModelButtonRepository getInstance() {
         return instance;
+    }
+
+    public List <ModelButtonData> getLikedButtons() {
+        return modelButtons.stream()
+                .filter(button -> button.isLiked())
+                .collect(Collectors.toList());
     }
 
     public void sortButtons() {

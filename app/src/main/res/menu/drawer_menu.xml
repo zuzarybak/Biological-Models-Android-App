@@ -3,16 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
         <item
-            android:id= "@+id/genetics_label"
-            android:icon="@drawable/dnastrand"
-            android:title= "@string/genetics_button_description" >
+            android:id= "@+id/models_label"
+            android:title= "@string/models_label_description" >
 
             <menu>
                 <item
                     android:id= "@+id/action_buttonsContainer_to_nucleicAcidsFragment"
-                    android:icon="@drawable/baseline_arrow_forward_ios_7"
+                    android:icon="@drawable/dnastrand"
                     android:title= "@string/nucleic_acids_button_description" />
             </menu>
+        </item>
+        <item
+            android:id= "@+id/action_buttonsContainer_to_recentlyViewedFragment"
+            android:icon="@drawable/baseline_alarm_on_24"
+            android:title= "@string/recently_viewed_models_label" >
         </item>
     </group>
 </menu>
